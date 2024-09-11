@@ -1,0 +1,45 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+*{
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+.container_1440{
+  max-width: 1440px;
+  margin: auto;
+}
+
+.container_1100{
+  max-width: 1100px;
+  margin: auto;
+}
+
+.container_860{
+  max-width: 860px;
+  margin: auto;
+}
+
+.container_520{
+  max-width: 520px;
+  margin: auto;
+}
+
+.fit{
+  width: fit-content;
+}
+
+.bg-greyBackground{
+  background-color: #a9a9a9;
+}
+
+.bg-blackBackground{
+  background-color: #161616;
+}
+
+.bg-backGroundCard{
+  background-color: #353535;
+}
+

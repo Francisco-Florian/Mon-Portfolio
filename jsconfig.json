@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "baseUrl": "src",  // Spécifie la base pour l'importation
+      "paths": {
+        "@components/*": ["components/*"], // Exemple de chemin pour des composants
+        "@utils/*": ["utils/*"]
+      }
+    },
+    "exclude": ["node_modules", "build"]
+  }
+  
