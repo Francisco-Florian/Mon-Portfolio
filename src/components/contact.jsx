@@ -2,38 +2,43 @@ import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 export default function Contact() {
+    // Gère l'état d'ouverture de la modal de succès
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    // Gère les données du formulaire (nom, email, message)
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
 
+    // Met à jour les valeurs des champs de formulaire
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    // Envoie l'e-mail via EmailJS et affiche la modal de succès
     const sendEmail = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Empêche le rechargement de la page
 
         emailjs.send(
-            'service_kogt3qq', 
-            'template_wz3h4r7', 
-            formData,
-            '' 
+            'service_kogt3qq',  // ID du service EmailJS
+            'template_wz3h4r7', // ID du template EmailJS
+            formData,           // Données du formulaire à envoyer
+            'HzgFhV9XIUpy-jk3A' // User ID EmailJS
         )
-        .then((result) => {
-            console.log(result.text);
-            setIsModalOpen(true); // Ouvre la modal sur succès
+        .then(() => {
+            setIsModalOpen(true);  // Ouvre la modal si l'e-mail est envoyé
         }, (error) => {
-            console.log(error.text);
+            console.error(error.text); // Gère les erreurs en cas d'échec
         });
 
-        // Réinitialiser le formulaire après l'envoi
+        // Réinitialise le formulaire après l'envoi
         setFormData({ name: '', email: '', message: '' });
     };
 
+    // Ferme la modal de succès
     const closeModal = () => {
         setIsModalOpen(false);
     };
@@ -51,16 +56,16 @@ export default function Contact() {
                             onChange={handleChange}
                             placeholder="Votre nom" 
                             className="w-full p-3 rounded-md bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white" 
-                            required
+                            required 
                         />
                         <input 
                             type="email" 
                             name="email"
-                            value={formData.email}
-                            onChange={handleChange}
+                            value={formData.email} 
+                            onChange={handleChange} 
                             placeholder="Votre email" 
                             className="w-full p-3 rounded-md bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white" 
-                            required
+                            required 
                         />
                     </div>
 
@@ -71,7 +76,7 @@ export default function Contact() {
                         placeholder="Votre message" 
                         rows="5" 
                         className="w-full p-3 rounded-md bg-gray-800 text-gray-300 focus:outline-none focus:ring-2 focus:ring-white"
-                        required
+                        required 
                     />
 
                     <button className="px-6 py-3 my-4 bg-white text-black rounded-md hover:bg-gray-200 transition duration-300">
