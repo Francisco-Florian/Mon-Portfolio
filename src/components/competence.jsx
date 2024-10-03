@@ -10,7 +10,7 @@ export default function Competence({ icon, competence, image }) {
                 </article>
             ) : (
                 <article className="text-center">
-                    <i className={icon}></i>
+                    <i className={icon} />
                     <h3>{competence}</h3>
                 </article>
             )}
